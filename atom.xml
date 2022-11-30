@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://ycx-cat.github.io/</id>
+    <title>The road of pain</title>
+    <updated>2022-11-30T08:30:41.444Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://ycx-cat.github.io/"/>
+    <link rel="self" href="https://ycx-cat.github.io/atom.xml"/>
+    <subtitle>穿过幽暗而孤独的岁月</subtitle>
+    <logo>https://ycx-cat.github.io/images/avatar.png</logo>
+    <icon>https://ycx-cat.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2022, The road of pain</rights>
+    <entry>
+        <title type="html"><![CDATA[十一月总结]]></title>
+        <id>https://ycx-cat.github.io/post/shi-yi-yue-zong-jie/</id>
+        <link href="https://ycx-cat.github.io/post/shi-yi-yue-zong-jie/">
+        </link>
+        <updated>2022-11-30T07:58:25.000Z</updated>
+        <summary type="html"><![CDATA[<p>不知不觉十一月过去了，本月到父母这边来了，生活逐渐走入正轨了，但因为自己和一些其他的原因学习目标没有完成，希望下个月能完成。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>不知不觉十一月过去了，本月到父母这边来了，生活逐渐走入正轨了，但因为自己和一些其他的原因学习目标没有完成，希望下个月能完成。</p>
+<!-- more -->
+<h1 id="c语言">C语言</h1>
+<p>本月指针算是入门了，从这里开始明显感觉困难，知识点又多又杂，数组，指针，内存地址这些概念和底层运作逻辑仿佛笼罩了一层迷雾，得联系后面计组数据结构等知识才能充分理解，这就要求我不懈长久的学习和钻研。</p>
+<p>下个月把翁恺C语言上下课程全给看完吧，有一个浅薄认知就行。</p>
+<h1 id="生活琐事">生活琐事</h1>
+<p>这个月自己有点分心了，加上我开始带娃，白天耐心也容易被消耗殆尽，所以学习进度不快。下个月希望能完成学习目标吧，继续完成模拟电路入门和计组入门的相关学习。</p>
+<p>然后也逐渐开始接触社会方方面面了，虽然只有一天，也让我受益良多。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[C语言指针]]></title>
+        <id>https://ycx-cat.github.io/post/zhi-zhen/</id>
+        <link href="https://ycx-cat.github.io/post/zhi-zhen/">
+        </link>
+        <updated>2022-11-10T12:58:25.000Z</updated>
+        <summary type="html"><![CDATA[<p>这个文章会长期更新，一步一步的增加对指针的理解</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>这个文章会长期更新，一步一步的增加对指针的理解</p>
+<!-- more -->
+<h1 id="和运算符">*和&amp;运算符</h1>
+<h2 id="定义指针型变量">*定义指针型变量</h2>
+<p>定义一个指针变量int *p，表示p这个变量储存了一个硬件内存中的地址。用print函数打印p是一个数值，该值的位数由编译的位数决定，在老师的演示中32位编译和int类型位数相同，在64位编译要高于Int类型。</p>
+<h2 id="运算符">*运算符</h2>
+<p>上面定义完指针形变量之后，这个变量p在调用时可以不加*，就表示储存地址的值。如果加*的话是一个运算符，表示指向该地址上的存储的变量。比如说：<br>
+int *p = &amp;i;   *p = 6 ;这两句就表示i的值变成了6。</p>
+<h2 id="运算符-2">&amp;运算符</h2>
+<p>&amp;运算符表示取一个变量的地址。两个相邻变量地址差值为sizeof(变量类型)，先定义的变量在上方。<br>
+&amp;运算符和<em>运算符这两关系是相反的，在一起用会相互抵消。<br>
+比如说：<br>
+<em>&amp;p——&gt;</em>(&amp;p)——&gt;</em>(p的地址)——&gt;p。<br>
+&amp;*p——&gt;&amp;(*p)——&gt;取p所指的变量的地址——&gt;p。</p>
+<h1 id="指针常见用法">指针常见用法</h1>
+<p>之前学函数时无法完成变量值交换（因为函数内有专门的变量地址，定义相同名字的变量不会影响到函数外的变量，并且传递到函数内的参数是值），使用指针，可以将变量地址传递进入函数完成固定地址上值的交换。<br>
+比如说：<br>
+void exchange(int *pa, int *pb)<br>
+{<br>
+int t = *pa;<br>
+*pa = *pb;<br>
+*pb = t;<br>
+}<br>
+exchange(&amp;a,&amp;b);</p>
+<p>当函数返回值不止一个时，可以使用指针来变相返回更多的函数返回值。</p>
+<h1 id="数组与指针">数组与指针</h1>
+<p>在C语言里面，数组（不带括号）可以看作一个常量指针变量，值等于a[0]的地址，所以指针变量赋值数组地址时可以不用&amp;取地址符号。因为是常量指针变量，所以传递到函数内的数组不能用sizeof()函数计算长度，并且不能对整个数组赋值例如b = a数组这样的形式。带括号的数组单元看作表达的是变量。</p>
+<p>同时，指针变量可以用[]运算符，如果指向的是变量可以看作长度为一的数组。数组也可以用*运算符，表示指向a[0]这个变量。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[十一月第一次总结]]></title>
+        <id>https://ycx-cat.github.io/post/11-yue-di-yi-ci-zong-jie/</id>
+        <link href="https://ycx-cat.github.io/post/11-yue-di-yi-ci-zong-jie/">
+        </link>
+        <updated>2022-11-10T05:54:36.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="学习总结">学习总结</h1>
+<p>C语言终于磕磕绊绊的开始指针的学习了，这周看完了函数数据类型和数组的相关知识。指针是C语言的重中之中，这个月争取学习消化掉并继续完成后面字符串链表等的相关学习。这是一个比较艰巨的任务。</p>
+<p>然后关于模拟电路计算机科学导论和计算机组成的学习也不要落下，让我安逸学习生存技能的时间不多了，我得抓紧时间。</p>
+<p>然后就是写作能力这一块，我考虑了一下，准备每天把自己的学习总结，所见所闻都写在博客上。写的时候多思考怎么把语句说的通顺，说的清楚。</p>
+<h1 id="杂记">杂记</h1>
+<p>下周我想去父母那边上班，在家呆着真不是事，我得多接触多交流，纸上得来终觉浅。水浒传写的很好，准备每天朗读一两回，就当消遣吧。然后就是运动，多跑步，继续减肥。最后，每天也别忘了英语的学习。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[十月份总结]]></title>
+        <id>https://ycx-cat.github.io/post/shi-yue-fen-zong-jie/</id>
+        <link href="https://ycx-cat.github.io/post/shi-yue-fen-zong-jie/">
+        </link>
+        <updated>2022-11-01T05:33:36.000Z</updated>
+        <content type="html"><![CDATA[<p>距离决定搭博客逐步自学嵌入式已经过去一个多星期了。<br>
+有点可惜这一周多没有完成计划中的任务，琐事总是接踵而至。</p>
+<h1 id="c语言学习">C语言学习</h1>
+<p>本周完成了从基本语法到数据类型的学习，包括判断循环这两个基本的流程，<br>
+和设想中把函数和数组学完还需要两三天。<br>
+自己上手设计程序流程和敲代码的过程花费了很长时间，感觉这是编程学习的必经之路。</p>
+<h1 id="模拟电路">模拟电路</h1>
+<p>这周只看了一个绪论，感觉和之前学习的电子电路原理有一定的相似。</p>
+<h1 id="11月展望">11月展望</h1>
+<p>深入学习C语言，能深入理解指针就算大收获。继续学习模拟电路数字电路以及计算机科学导论。<br>
+也不要忘了英语的学习，同时继续深入发展自己的爱好，多运动。</p>
+<h1 id="琐事">琐事</h1>
+<p>感觉这几年荒废了好多，<em>自己普通话都说不太利索了</em>，<br>
+意识到这件事之后我开始在家朗读古文，看脱口秀视频慢慢复建，<br>
+然后需要多和人交流沟通。如果国企这件事黄了的话，就考虑去当销售或者营业员。<br>
+最后，我又表白了，不够勇敢，但我还是踏出了这一步，我相信自己可以走出当前的困境的。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[博客搭建指南]]></title>
+        <id>https://ycx-cat.github.io/post/bo-ke-da-jian-zhi-nan/</id>
+        <link href="https://ycx-cat.github.io/post/bo-ke-da-jian-zhi-nan/">
+        </link>
+        <updated>2022-10-22T11:14:01.000Z</updated>
+        <content type="html"><![CDATA[<p>前期准备内容和博客  https://blog.csdn.net/J_____Q/article/details/119762094  内容完全一致。<br>
+碰到远程连接和同步失败的情况把代理改成Proxy，地址填127.0.0.1，端口看clash上的端口填入即可。（总结，挂梯并使用proxy代理）</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[万事开头难]]></title>
+        <id>https://ycx-cat.github.io/post/wan-shi-kai-tou-nan/</id>
+        <link href="https://ycx-cat.github.io/post/wan-shi-kai-tou-nan/">
+        </link>
+        <updated>2022-10-22T09:01:03.000Z</updated>
+        <content type="html"><![CDATA[<p>2022/10/22<br>
+昨天又是辗转反侧难眠的一夜，不知不觉我已经23岁了。最近几个月发生的事明明白白告诉我残酷的现实：学校里学的知识严重脱轨于社会，十几年的学习生涯并不能让我在社会中安身立命。家里条件一般，嘴皮子不利索，不能很好的处理人际关系，又没有过硬的技术。这种现状属实让人痛苦又迷茫。<br>
+好消息是我终于找到了真正热爱的事物，并且想要为此付出不懈的努力，加油吧。<br>
+十月剩下的一周多时间完成目标：模拟电路入门，C语言基础看完。</p>
+]]></content>
+    </entry>
+</feed>
